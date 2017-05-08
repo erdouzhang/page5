@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="jquery/jquery.js"></script>
+  <title>页面切换动画效果5 - 3D+缩放同时切换</title>
+  <style>
+    html,body {height: 100%;}
+    body {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+
+      -webkit-perspective: 1500px;
+      perspective: 1500px;
+    }
+    article {
+      position: absolute;
+      top: 0;
+
+      width: 100%;
+      height: 100%;
+      padding: 100px;
+      box-sizing: border-box;
+
+      -webkit-transition: all 1s ease-in-out;
+      transition: all 1s ease-in-out;
+
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    #tablet {
+      background-color: #4ac4aa;
+
+      -webkit-transform: rotateY(0deg) scale(1,1);/*页面显示*/
+      transform: rotateY(0deg) scale(1,1);
+    }
+    #wifi {
+      background-color: #ea5634;
+
+      -webkit-transform: rotateY(180deg) scale(0,0);/*页面隐藏*/
+      transform: rotateY(180deg) scale(0,0);
+    }
+    h1 {
+      font-size: 4em;
+      border-bottom: 1px solid rgba(255, 255, 255, .2);
+      padding-bottom: 30px;
+    }
+    p {
+      color: rgba(255, 255, 255, .8);
+      margin-bottom: 30px;
+    }
+    a {
+      font-size: 1.5em;
+      padding: 5px 50px;
+      border: 1px solid #fff;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    #tablet.move {
+      -webkit-transform: rotateY(180deg) scale(0,0);
+      transform: rotateY(180deg) scale(0,0);
+    }
+    #wifi.move {
+      -webkit-transform: rotateY(0deg) scale(1,1);
+      transform: rotateY(0deg) scale(1,1);
+    }
+  </style>
+</head>
+<body>
+  <article id="tablet">
+    <img src="images/05.jpg" alt="tablet">
+    <h1>Comprehensam</h1>
+    <p>Tablets, tablets, and more tablets. Every day, new computer tablets hit the streets. They're one of the hottest gadgets out there, increasingly replacing laptops as a primary way to enjoy the web, all your media, eBooks, and more. Here you'll find computer tablets from brands like Fire, Apple, Microsoft, Acer, ASUS, Lenovo, and Samsung. You'll find iOS (Apple), Windows, and Android tablets, including our very own Amazon Fire tablets, and hopefully just the right one for you.</p>
+    <a href="#wifi">Next</a>
+  </article>
+  <article id="wifi">
+    <img src="images/06.jpg" alt="tablet">
+    <h1>Adversarium</h1>
+    <p>Our Tablet Buying Guide and Tablet Comparison Table can help you compare the various features of all these unique computer tablets, helping you distinguish between iPads, Fire, and Android tablets, for example, or giving you some guidance on how to make your decision, considering storage capacity, connectivity, size, operating system, hardware, price, and more. There's more to computer tablets than that shiny touchscreen, after all.</p>
+    <a href="#tablet">Next</a>
+  </article>
+
+  <script>
+    $(document).ready(function() {
+      $('a').click(function(e) {
+        e.preventDefault();
+        $('#tablet').toggleClass('move');
+        $('#wifi').toggleClass('move');
+      });
+    });
+  </script>
+</body>
+</html>
